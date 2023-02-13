@@ -14,6 +14,12 @@ public class HelloController {
     @FXML
     public Button sayBye;
     @FXML
+    public void initialize()
+    {
+        sayHello.setDisable(true);
+        sayBye.setDisable(true);
+    }
+    @FXML
     public void onButtonClicked(ActionEvent e)
     {
         if(e.getSource().equals(sayHello))
@@ -24,6 +30,15 @@ public class HelloController {
         {
             System.out.println("Bye, "+ nameField.getText());
         }
+    }
+    @FXML
+    public void handleKeyReleased()
+    {
+        // This function is to keep the buttons disabled until anything is entered in the text field button.
+        String text = nameField.getText();
+        boolean disableButtons = text.isEmpty() || text.trim().isEmpty();
+        sayHello.setDisable(disableButtons);
+        sayBye.setDisable(disableButtons);
     }
 
 
