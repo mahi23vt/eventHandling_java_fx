@@ -16,6 +16,8 @@ public class HelloController {
     private Button sayBye;
     @FXML
     private CheckBox isChecked;
+    @FXML
+    private Label ourLabel;
 
     @FXML
     public void initialize()
@@ -38,13 +40,24 @@ public class HelloController {
         {
             System.out.println("Bye, "+ nameField.getText());
         }
-        try{
-            Thread.sleep(10000);
-    }
-        catch (InterruptedException event)
-        {
-            // we dont care about this at the moment
-        }
+        Runnable task = () -> {
+            try{
+                Thread.sleep(10000);
+                ourLabel.setText("We did something");
+            }
+            catch (InterruptedException event)
+            {
+                // we dont care about this at the moment
+            }
+        };
+//        try{
+//            Thread.sleep(10000);
+//    }
+//        catch (InterruptedException event)
+//        {
+//            // we dont care about this at the moment
+//        }
+        new Thread(task).start();
         if(isChecked.isSelected())
         {
             nameField.clear();

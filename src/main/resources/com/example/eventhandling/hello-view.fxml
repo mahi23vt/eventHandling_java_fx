@@ -19,4 +19,5 @@
     <Button fx:id="sayHello" text="Hello!" GridPane.rowIndex="2" GridPane.columnIndex="0" onAction="#onButtonClicked"/>
     <Button fx:id="sayBye" text="Bye!" GridPane.rowIndex="3" GridPane.columnIndex="0" onAction="#onButtonClicked"/>
     <CheckBox fx:id="isChecked" GridPane.rowIndex="4" GridPane.columnIndex="0" onAction="#handleChange" text="check this to clear text on button click"/>
+    <Label fx:id="ourLabel" GridPane.columnIndex="0" GridPane.rowIndex="5" text="Nothing has happened"/>
 </GridPane>
